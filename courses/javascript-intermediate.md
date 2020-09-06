@@ -1,7 +1,10 @@
 ---
-title: "Intermediate JavaScript"
+mainfont: DejaVu Sans
+linkcolor: NavyBlue
+urlcolor: NavyBlue
+toccolor: Red
 
-logo: /home/andrew/Projects/webdev/data/images/logo.png
+title: "Intermediate JavaScript"
 
 author:
   - name: "Andrew Smith"
@@ -27,6 +30,16 @@ Overview {.unnumbered}
 ----------------------
 
 This JavaScript course is delivered over three days.
+
+### Bar
+
+This is a test
+
+Here [is a link](www.example.com)
+
+### Foo
+
+:smile:
 
 ### What's In Store - Day 1
 
