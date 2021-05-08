@@ -1,0 +1,41 @@
+[
+  {
+    "Title": "WandaVision",
+    "Year": "2021",
+    "imdbID": "tt9140560",
+    "Type": "series",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYjJiZmE5ZDgtYWUxZi00MWI1LTg2MmEtZmUwZGE2YzRkNTE5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+    "imdbRating": "8.1"
+  },
+  {
+    "Title": "Soul",
+    "Year": "2020",
+    "imdbID": "tt2948372",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZGE1MDg5M2MtNTkyZS00MTY5LTg1YzUtZTlhZmM1Y2EwNmFmXkEyXkFqcGdeQXVyNjA3OTI0MDc@._V1_SX300.jpg",
+    "watchlist": true
+  },
+  {
+    "Title": "Spirited Away",
+    "Year": "2001",
+    "imdbID": "tt0245429",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "watchlist": true
+  },
+  {
+    "Title": "Venom",
+    "Year": "2018",
+    "imdbID": "tt1270797",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzAwNzUzNjY4MV5BMl5BanBnXkFtZTgwMTQ5MzM0NjM@._V1_SX300.jpg"
+  },
+  {
+    "Title": "Batman Begins",
+    "Year": "2005",
+    "imdbID": "tt0372784",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "watchlist": true
+  }
+]
