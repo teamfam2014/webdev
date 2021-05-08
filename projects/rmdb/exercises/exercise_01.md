@@ -18,6 +18,7 @@
 
     ```js
     const featuredMovie = {
+      id: 1,
       title: 'WandaVision',
       rating: 8.1,
       poster: 'https://bit.ly/3h92N9p'
@@ -37,9 +38,9 @@
 
     ```js
     const watchlistMovies = [
-      { title: 'Raya and the Last Dragon '},
-      { title: 'Soul' },
-      { title: 'The Mitchells vs the Machines' },
+      { id: 2, title: 'Raya and the Last Dragon', poster: 'https://bit.ly/2SpIOsz', rating: 7.4 },
+      { id: 3, title: 'Soul', poster: 'https://bit.ly/3trYXdN', rating: 8.1 },
+      { id: 4, title: 'The Mitchells vs the Machines', poster: 'https://bit.ly/3eqRmIn', rating: 7.9 },
     ]
     ```
 
@@ -59,8 +60,8 @@ Looks like we have a few React components that we could pull out into separate f
 - NavBar
 - Logo
 - FeaturedMovie
+- MoviePoster (inside `FeaturedMovie`)
 - WatchList
-- MoviePoster
 
 <details><summary>This is how your App code might look by the end</summary>
 
