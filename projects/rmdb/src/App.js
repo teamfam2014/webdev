@@ -1,6 +1,7 @@
+import './App.scss'
 
 export const App = () => (
   <div className="App">
-    <h1>Hello world</h1>
+    <img src="https://bit.ly/3h92N9p" alt="" width={75} />
   </div>
 )
