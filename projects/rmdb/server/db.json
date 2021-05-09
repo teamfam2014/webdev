@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "password"
+    }
+  ],
   "movies": [
     {
       "Title": "WandaVision",
@@ -44,5 +51,4 @@
       "imdbRating": "8.2"
     }
   ]
-
 }

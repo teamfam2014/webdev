@@ -181,6 +181,81 @@ const DebugRouterInfo = () => {
 
 More on `location`: [(link)](https://reactrouter.com/web/api/location)
 
+### URL Parameters
+
+- Commonly you'll have routes like:
+  - `/todos/42`
+  - `/authors/1001/books/60`
+- These have **URL parameters** which you can pattern match against:
+  - `/todos/:id`
+  - `/authors/:authorId/books/:bookId`
+  
+### URL Parameters
+
+You establish the URL parameter pattern matching on the `Route`:
+
+```javascript
+<Route path="/todos/:id">
+  <TodoDetail />
+</Route>
+<Route path="/todos">
+  <Todos />
+</Route>
+```
+
+### URL Parameters
+
+Then you read the params using a hook inside your component:
+
+```javascript
+import { useParams } from 'react-router'
+
+const TodoDetail = () => {
+  const { id } = useParams()
+}
+```
+
+### Location state
+
+- Sometimes you want to sneak along other state, not inside URL or query params
+- E.g. a flash message to display on the next page
+- You can provide the state on a `Link`
+
+```javascript
+<Link
+  to={{
+    pathname: '/',
+    state: { flash: 'Hello world' }
+  }}
+/>
+```
+
+### Location state
+
+- You can also do similar with `Redirect`:
+
+```javascript
+<Redirect
+  to={{
+    pathname: '/',
+    state: { flash: 'Hello world' }
+  }}
+/>
+```
+
+### Location state
+
+You can read location state with `useLocation`:
+
+```javascript
+import { useLocation } from 'react-router'
+
+const Home = () => {
+  const location = useLocation()
+  const { flash } = location // 'Hello world'
+}
+```
+
 ### Exercise
 
 **Lecture**: [(link)](https://codesandbox.io/s/router-2c253?file=/src/App.lecture.begin.js)
