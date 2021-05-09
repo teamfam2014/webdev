@@ -27,14 +27,20 @@ You'll need to check if the array of `watchlistMovies` already contains the movi
 
 You are told that the Watchlist movies need to display the year they were made, while the All Movies movies needs to display whether they're a TV series or movie.
 
-**🤔 Stop and think**
+> **🤔 Stop and think**
+> 
+> What do we use to make a component more extensible?
+> 
+> <details><summary>Click here for an answer</summary>
+> 
+> Props! 
+> 
+> They could be named like `showYear`, `showType`, etc. if we want to keep control inside the component.
+> 
+> Or, we could invert control with the `children` prop and make the consumer pass in the information.
+> </details>
 
-You have a couple options:
-
-1. Pass in props like `showYear`, `showType`, etc., and optionally render them in `MovieThumbnail`
-1. Make `MovieThumbnail` more extensible with other information through `children`.
-
-Since we already tried #1, let's go with #2 for variety (and because this is an exercise). The end use should look like this:
+Since we just learned about composition with `children` prop, let's use that this time:
 
 ```js
 // for Watchlist
