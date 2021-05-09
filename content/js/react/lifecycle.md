@@ -1,4 +1,4 @@
-## Component Lifecycle
+## Class Lifecycle Methods
 
 ### The Life and Times of a React Component
 

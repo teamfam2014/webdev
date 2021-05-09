@@ -64,16 +64,14 @@ Day 3
 
 # Interactive React
 
-<<(../content/js/react/state.md)
+<<(../content/js/react/conditional-rendering.md)
 <<(../content/js/react/state-hooks.md)
 
 # React Design Patterns
 
-<<(../content/js/react/conditional-rendering.md)
 <<(../content/js/react/lifting-state.md)
 <<(../content/js/react/composition.md)
 <<(../content/js/react/ui-to-components.md)
-<<(../content/js/react/bootstrap.md)
 
 # Forms
 
@@ -82,7 +80,6 @@ Day 3
 
 # React Lifecycle
 
-<<(../content/js/react/lifecycle.md)
 <<(../content/js/react/lifecycle-hooks.md)
 
 # Async React
@@ -90,9 +87,14 @@ Day 3
 <<(../content/js/async/axios.md)
 <<(../content/js/react/async.md)
 
+# Hooks
+
+<<(../content/js/react/hooks.md)
+
 # Class Components
 
 <<(../content/js/react/class-components.md)
+<<(../content/js/react/lifecycle.md)
 
 # React Context
 
@@ -109,6 +111,7 @@ TODO
 
 # Overflow
 
+<<(../content/js/react/bootstrap.md)
 <<(../content/js/react/refs.md)
 <<(../content/js/async/promises.md)
 <<(../content/js/async/async-await.md)
