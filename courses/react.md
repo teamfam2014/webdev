@@ -21,57 +21,97 @@ copyright: >
   To license this work for use in a commercial setting contact Andrew Smith
 ---
 
-### Introduction to This Course {.unnumbered}
+### Introduction to This Course
 
 The source code for this course can be found at the following URL:
 
 <https://github.com/andrewsouthpaw/webdev>
 
-## Overview {.unnumbered}
-
-### What's In Store {.unnumbered}
+### Course Outline
 
 Day 1
 
-* JS Language
-* React Basics
+* Basics & Props
+* Lists
+* Conditional Rendering
+* State
+* React Design Patterns
 
 ### What's In Store {.unnumbered}
 
 Day 2
 
-* React Basics
+* Forms
+* CRUD
+* Lifecycle Hooks
+* Async
 
 ### What's In Store {.unnumbered}
 
 Day 3
 
-* Interactive React
-* React Design Patterns (pt 1)
-
-### What's In Store {.unnumbered}
-
-Day 4
-
-* Forms
-* Lifecycle
-
-### What's In Store {.unnumbered}
-
-Day 5
-
-* Async React
-* Routing
+* Class components
+* Context API and Hooks
+* Router
 * Testing
 
-### Extra Stuff
+# React Basics
 
-* Redux
-* Functional Programming (Ramda)
-* React Design Patterns pt 2
-* JS Tooling
-* Functional Programming (Basics)
-* The DOM
+<<(../content/js/react/basics.md)
+<<(../content/js/react/components.md)
+<<(../content/js/react/props.md)
+<<(../content/js/react/lists.md)
+
+# Interactive React
+
+<<(../content/js/react/state.md)
+<<(../content/js/react/state-hooks.md)
+
+# React Design Patterns
+
+<<(../content/js/react/conditional-rendering.md)
+<<(../content/js/react/lifting-state.md)
+<<(../content/js/react/composition.md)
+<<(../content/js/react/ui-to-components.md)
+<<(../content/js/react/bootstrap.md)
+
+# Forms
+
+<<(../content/js/react/forms-controlled.md)
+<<(../content/js/react/crud.md)
+
+# React Lifecycle
+
+<<(../content/js/react/lifecycle.md)
+<<(../content/js/react/lifecycle-hooks.md)
+
+# Async React
+
+<<(../content/js/async/axios.md)
+<<(../content/js/react/async.md)
+
+# Class Components
+
+<<(../content/js/react/class-components.md)
+
+# React Context
+
+TODO
+
+# Routing
+
+<<(../content/js/react/router.md)
+
+# Testing
+
+<<(../content/js/testing.md)
+<<(../content/js/react/enzyme-basics.md)
+
+# Overflow
+
+<<(../content/js/react/refs.md)
+<<(../content/js/async/promises.md)
+<<(../content/js/async/async-await.md)
 
 # JS Review
 
@@ -80,53 +120,9 @@ Day 5
 <<(../content/js/es-features/exercise.md)
 <<(../content/js/oop/classes.md)
 
-# React Basics
-
-<<(../content/js/react/basics.md)
-<<(../content/js/react/components.md)
-<<(../content/js/react/props.md)
-<<(../content/js/react/ui-to-components.md)
-<<(../content/js/react/conditional-rendering.md)
-
-# Interactive React
-
-<<(../content/js/react/state.md)
-<<(../content/js/react/lists.md)
-<<(../content/js/react/state-hooks.md)
-
-# React Design Patterns pt 1
-
-<<(../content/js/react/composition.md)
-<<(../content/js/react/bootstrap.md)
-
-# Forms
-
-<<(../content/js/react/forms-controlled.md)
-<<(../content/js/react/lifting-state.md)
-<<(../content/js/react/crud.md)
-
-# React Lifecycle
-
-<<(../content/js/react/lifecycle.md)
-<<(../content/js/react/lifecycle-hooks.md)
-
-# Testing
-
-<<(../content/js/testing.md)
-<<(../content/js/react/enzyme-basics.md)
-
-# Async React
-
-<<(../content/js/async/axios.md)
-<<(../content/js/react/async.md)
-
 # Redux
 
 <<(../content/js/react/redux.md)
-
-# Routing
-
-<<(../content/js/react/router.md)
 
 # React Design Patterns
 
@@ -136,12 +132,6 @@ Day 5
 <div class="notes">
     TODO compound components
 </div>
-
-# Overflow
-
-<<(../content/js/react/refs.md)
-<<(../content/js/async/promises.md)
-<<(../content/js/async/async-await.md)
 
 # Functional Programming (Ramda)
 
