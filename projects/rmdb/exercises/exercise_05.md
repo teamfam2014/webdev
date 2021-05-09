@@ -51,11 +51,15 @@ Once you decide on a strategy, implement it.
 
 ## Challenges
 
-### Implement form to add a movie
+### Create an Add Movie section
 
 RMDb is a pretty lazy app and relies on being community-driven. Users are encouraged to add movies when they're missing from the database.
 
-Add a new section at the bottom, "Add Movie", which allows the user to enter a movie. The form should take the following information:
+Add a new section at the bottom, "Add Movie", which allows the user to enter a movie. There should be a button that displays the form, and look something like this:
+
+![](https://i.imgur.com/Vgu46Nb.png)
+
+The form should take the following information:
 
 ```
 Title
@@ -66,14 +70,13 @@ imdbID
 imdbRating
 ```
 
-Make the `Year` and `<input type="number">` with reasonable `min` and `max` values. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number). 
+Here are some behavior details:
 
-The `Type` should be `radio` inputs. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio).
+1. Make the `Year` and `<input type="number">` with reasonable `min` and `max` values. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
+1. The `Type` should be `radio` inputs. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio).
+1. The `Poster` should be `<input type="url">`. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url).
+1. The `imdbRating` should be a `number` with `0.1` as the step value.
+1. If [Cancel] is pressed, it should reset the form and hide it. Clicking [Add movie] again should display an empty form.
+1. When the form is submitted, it should be added to the list of all movies.
 
-The `Poster` should be `<input type="url">`. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url).
-
-The `imdbRating` should be a `number` with `0.1` as the step value.
-
-When the form is submitted, it should be added to the list of all movies.
-
-Use `/public/missingMovies.json` for some sample data of movies that you can add manually.
+Use `/public/missingMovies.json` for some sample data of movies that you can try adding.
