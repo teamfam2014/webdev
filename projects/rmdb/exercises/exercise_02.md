@@ -36,4 +36,4 @@ The question is always: "What does this component do?" Should `MoviePoster` *onl
 
 ## Challenges
 
-The `Watchlist` has some pretty ho-hum styling right now. See if you can display them as rectangles, as you might see on Netflix, IMDb, etc. ([Example](https://i.imgur.com/CS0kFld.png))
+The `Watchlist` has some pretty ho-hum styling right now, it might be displaying vertically rather than in a single row. See if you can display them in a row as rectangles, as you might see on Netflix, IMDb, etc. ([Example](https://i.imgur.com/CS0kFld.png))
