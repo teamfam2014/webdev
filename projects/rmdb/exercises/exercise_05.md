@@ -1,11 +1,5 @@
 # Exercise 5
 
-## Require user login for Watchlist
-
-It seems strange that the Watchlist is editable by anyone. If the changes were being persisted, then anyone in the world could be editing this Watchlist.
-
-Seems strange, so let's simulate requiring logging in before you can show the watchlist.
-
 ## Create [Sign in] form
 
 Add a [Sign in] button to the `NavBar`. When clicked, it should render a small `form` that takes a username and password.
@@ -23,9 +17,19 @@ Very secure.
 
 Keep track of whether the user is signed in via state.
 
-## Hide Watchlist until user is signed in
+## Display user info when signed in
 
-We shouldn't render the watchlist until the user has signed in. (Pay no attention to the fact that we already know the watchlist from the `movies.json` file. We would presumably not have that information either.)
+When the user is signed in, replace the [Sign in] button with a display of the person's username.
+
+## Create way to sign out
+
+When the user is signed in, provide a [Sign out] button that, when clicked, signs the user out.
+
+## Challenges
+
+### Hide Watchlist until user is signed in
+
+It seems strange that the Watchlist is editable by anyone. Instead, we shouldn't render the watchlist until the user has signed in. (Pay no attention to the fact that we already know the watchlist from the `movies.json` file. We presumably wouldn't have that information either.)
 
 For now, when the user isn't logged in, simply render a message:
 
@@ -48,8 +52,6 @@ Notice how we're adding yet another layer of complexity to the `MovieListSection
 > </details>
 
 Once you decide on a strategy, implement it.
-
-## Challenges
 
 ### Create an Add Movie section
 

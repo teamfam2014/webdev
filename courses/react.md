@@ -91,14 +91,9 @@ Day 3
 
 <<(../content/js/react/hooks.md)
 
-# Class Components
-
-<<(../content/js/react/class-components.md)
-<<(../content/js/react/lifecycle.md)
-
 # React Context
 
-TODO
+<<(../content/js/react/context.md)
 
 # Routing
 
@@ -108,6 +103,11 @@ TODO
 
 <<(../content/js/testing.md)
 <<(../content/js/react/enzyme-basics.md)
+
+# Class Components
+
+<<(../content/js/react/class-components.md)
+<<(../content/js/react/lifecycle.md)
 
 # Overflow
 
