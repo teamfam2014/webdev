@@ -99,6 +99,7 @@ const Greeting = (props) => {
 
 ### Props (Function Components)
 
+* React Components are different from HTML elements
 * Props passed to React Components are never implicitly used
 * If you give a component a `className` or `id`, that component needs to actually use it
 
@@ -114,24 +115,6 @@ const Greeting = ({ className, message }) => (
   message="Hello world"
   id="Will not be applied :-(" 
 />
-```
-
-### Props (Class Components)
-
-* The same rules govern **class components**
-* Only different: you read off `this.props`
-
-```javascript
-class Greeting extends React.Component {
-  render() {
-    const { className, message } = this.props
-    return (
-      <div className={className}>
-        {message}
-      </div>
-    )
-  }
-}
 ```
 
 ### Exercise

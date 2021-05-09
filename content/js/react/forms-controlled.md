@@ -56,7 +56,7 @@ In **uncontrolled forms**, you *don't* provide the `value` or `onChange`.
 
 React doesn't know what's in the input, it's "uncontrolled"
 
-We'll return to this pattern later. It's cool, but calls for more advanced concepts.
+It's cool, but calls for more advanced concepts.
 
 ### Controlled Forms
 

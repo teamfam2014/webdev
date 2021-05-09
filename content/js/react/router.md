@@ -183,6 +183,7 @@ More on `location`: [(link)](https://reactrouter.com/web/api/location)
 
 ### Exercise
 
+**Lecture**: [(link)](https://codesandbox.io/s/router-2c253?file=/src/App.lecture.begin.js)
 **Exercise**: [(link)](https://codesandbox.io/s/router-2c253?file=/src/App.js)
 
 
