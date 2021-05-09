@@ -34,6 +34,12 @@ If you haven't made an "Add Movie" section, refer to the instructions in the pre
 
 ## Challenges
 
+### Allow poster to be previewed when adding/editing movie
+
+Most UIs will provide a preview of the image URL you provide when you're filling out a form. For example, in Gmail when you add an image via URL it'll give you a preview [like this](https://i.imgur.com/iV7Joya.png).
+
+Let's add some similar functionality for adding/editing the poster of a movie. Add a [Preview] button next to the poster URL input. When the button is clicked, load the current URL from the input into an `img` tag next to the form.
+
 ### Require delete to be confirmed
 
 Product says that users are now complaining about accidentally deleting legitimate movies. Let's make the Delete button something that has to be confirmed.

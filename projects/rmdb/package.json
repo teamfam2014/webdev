@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "db": "json-server --watch data/db.json --port 3001 --id imdbID"
+    "db": "json-server --watch server/db.json --port 3001 --id imdbID --middlewares server/chaosMonkeySlowdown.js",
+    "db-slow": "SLOWDOWN=2000 yarn db"
   },
   "eslintConfig": {
     "extends": [
