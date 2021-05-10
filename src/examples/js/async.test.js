@@ -1,47 +1,3 @@
-// <<: fake-server
-const users = {
-  1: { id: 1, name: 'Andrew' },
-  2: { id: 2, name: 'Billy' },
-}
-
-const getUser = (id) => new Promise((res, rej) => {
-  process.nextTick(() => (
-    users[id]
-      ? res(users[id])
-      : rej('User ID ' + id + ' not found.')
-  ))
-})
-// :>>
-
-// <<: async-await
-it('should handle async', async () => {
-  const user = await getUser(1)
-  expect(user).toEqual({ id: 1, name: 'Andrew' })
-})
-// :>>
-
-// <<: async-await-resolves
-it('should handle async', async () => {
-  return await expect(getUser(1))
-    .resolves.toEqual({ id: 1, name: 'Andrew' })
-})
-// :>>
-
-// <<: async-promise
-it('should handle async', () => {
-  return getUser(1)
-    .then((res) => {
-      expect(res).toEqual({ id: 1, name: 'Andrew' })
-    })
-})
-// :>>
-
-// <<: async-resolves
-it('should handle async', () => {
-  return expect(getUser(1))
-    .resolves.toEqual({ id: 1, name: 'Andrew' })
-})
-// :>>
 
 // <<: async-fail-await
 it('should catch errors', async () => {
@@ -67,18 +23,6 @@ it('does not fail :-(', async () => {
 it('should return error message', async () => {
   await expect(getUser(42))
     .rejects.toEqual('User ID 42 not found.')
-})
-// :>>
-
-// <<: async-dependency
-const getUserName = async (id) => {
-  const user = await getUser(id)
-  return user.name
-}
-
-it('can still await with resolves', async () => {
-  return await expect(getUserName(2))
-    .resolves.toEqual('Billy')
 })
 // :>>
 
