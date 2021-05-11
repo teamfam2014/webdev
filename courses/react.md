@@ -50,7 +50,7 @@ Day 2
 
 Day 3
 
-* Class components
+* Custom hooks
 * Context API and Hooks
 * Router
 * Testing
@@ -101,13 +101,20 @@ Day 3
 
 # Testing
 
-<<(../content/js/testing.md)
-<<(../content/js/react/enzyme-basics.md)
+<<(../content/js/jest/basics.md)
+<<(../content/js/jest/async.md)
+<<(../content/js/jest/mocking.md)
+<<(../content/js/react/rtl.md)
 
 # Class Components
 
 <<(../content/js/react/class-components.md)
 <<(../content/js/react/lifecycle.md)
+
+# Testing (All)
+
+<<(../content/js/testing.md)
+<<(../content/js/react/enzyme-basics.md)
 
 # Overflow
 

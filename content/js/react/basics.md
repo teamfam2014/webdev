@@ -92,6 +92,10 @@ This syntax is called "JSX"
 
 ### Writing HTML in your JS
 
+![](./images/yo-dawg-html.jpg)
+
+### Writing HTML in your JS
+
 In this way, you can pass JSX to `ReactDOM` and it gets rendered
 
 ```javascript
@@ -102,10 +106,6 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
-
-### Writing HTML in your JS
-
-![](./images/yo-dawg-html.jpg)
 
 ### Writing HTML in your JS
 
