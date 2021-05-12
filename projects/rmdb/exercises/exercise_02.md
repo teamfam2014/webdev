@@ -1,5 +1,7 @@
 # Exercise 2
 
+[Starting point if you didn't complete the previous exercise](https://github.com/AndrewSouthpaw/webdev/tree/exercise-1-solution/projects/rmdb/src)
+
 ## Make it configurable with props
 
 Everything is still pretty hard-coded. Let's start passing data down as props to other React components.
