@@ -6,8 +6,9 @@
 const Switch = () => {
   const [on, setOn] = useState(false)
   return (
-    <input type="checkbox" value={on} 
-      onChange={() => { setOn(!on) }} />
+    <button onClick={() => { setOn(!on) }}>
+      {on ? 'On' : 'Off'}
+    </button>
   )
 }
 
@@ -41,20 +42,77 @@ Q:  How does `App` know about the "on" state of `Switch`?
 
 ```javascript
 const Switch = ({ on, onChange }) => (
-  <input type="checkbox" value={on} onChange={onChange} />
+  <button onClick={() => { onChange(!on) }}>
+    {on ? 'On' : 'Off'}
+  </button>
 )
 
 export const App = () => {
   const [on, setOn] = useState(false)
   return (
     <div className="App">
-      <Switch on={on} onChange={() => { setOn(!on) }} />
+      <Switch on={on} onChange={setOn} />
+      {on && (<p>Powered on!</p>)}
     </div>
   )
 }
 ```
 
+### Making a Toggle Component
+
 Visualization: [(link)](http://localhost:3000/js/react/one-way-data/index.html)
+
+### Encapsulating some logic
+
+Too much logic up top:
+
+```javascript
+const Counter = ({ count, onClick }) => (
+  <button onClick={onClick}>{count}</button>
+)
+
+export const App = () => {
+  const [count, setCount] = useState(0)
+  const max = 5
+  const increment = () => {
+    if (count >= max) return
+    setCount(count + 1)
+  }
+  return (
+    <div className="App">
+      <Counter count={count} max={max} onClick={increment} />
+    </div>
+  )
+}
+```
+
+### Encapsulating some logic
+
+```javascript
+const Counter = ({ count, onClick, max }) => {
+  const handleClick = () => {
+    if (count >= max) return
+    onClick(count + 1)
+  }
+  return (
+    <button onClick={handleClick}>{count}</button>
+  )
+}
+
+export const App = () => {
+  const [count, setCount] = useState(0)
+  const max = 5
+  return (
+    <div className="App">
+      <Counter count={count} max={max} onClick={setCount} />
+    </div>
+  )
+}
+```
+
+### Encapsulating some logic
+
+- Key takeaway: lift **state** up, keep business logic down
 
 ### Exercise
 
