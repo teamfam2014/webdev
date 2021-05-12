@@ -14,25 +14,62 @@ Right now the implementation of `Watchlist` assumes there's only three movies, a
 
 The Watchlist isn't very exciting with just text. Display both the poster and the name of the movie for each movie in the watchlist.
 
-Notice the component reuse, to display a movie's poster.
+## List all the movies
 
-![](https://i.imgur.com/00kCfHC.png)
+Let's add a new section at the bottom to display all the movies in our database! Our users will marvel at our wide collection.
 
-There's two patterns being repeated:
+1. Create a new component, `AllMovies`, which takes `movies` as a prop. You should use all the movies in `db.json`.
+1. Display all movies passed in. Remember to provide a `key`. Look at the data and think about what would be an appropriate property to use.
+1. It's okay that some of the movies are displayed in other sections, e.g. Featured or in the Watchlist.
 
-1. Displaying a movie's poster image
-1. Displaying a movie's poster image + title beneath
+## Extract a `MovieThumbnail`
 
-For now, let's have these be two separate components:
+Notice how the `Watchlist` and `AllMovies` both display movies with a poster and a title? Looks like an opportunity to extract a shared component!
 
-1. `MoviePoster`
-1. `MovieThumbail` (which uses `MoviePoster`)
+Create a `MovieThumbnail` which takes a `movie` as a prop and knows how to display the movie's poster and title.
 
-Extract and use these components as appropriate in both the `FeaturedMovie` and `Watchlist` components.
+> **🤔 Stop and think**
+> 
+> Why pass `movie` as a prop, rather than individual props like `title` and `poster`? What would be some of the pros and cons of each?
+>
+> 
+> <details><summary>Click here for discussion after thinking</summary>
+> 
+> There isn't a right answer here. You'll see both frequently in React codebases.
+> 
+> When working with higher-level semantic components, e.g. `MovieThumbnail`, `UserContactBadge`, `EmailSummary`, I'll pass in the semantic models, like `movie`, `user`, or `email`.
+> 
+> When working with lower-level reusable components used across multiple domain models, like `Title`, `Avatar`, or `Summary`, I'll use abstracted language that isn't domain-specific, e.g. `title`, `url`, or `text`.
+> 
+> The downside to passing domain objects around is that destructuring can get tedious. You're writing:
+> 
+> ```javascript
+> const MovieThumbnail = ({ movie: { Poster, Title } }) => (/* ... */)
+> ```
+> 
+> Instead of:
+> 
+> ```javascript
+> const MovieThumbnail = ({ Poster, Title }) => (/* ... */)
+> ```
+> 
+> The tradeoff is that all the other data comes for free, so if you missed something you don't have to thread it into props later.
+> 
+> 
+> Note how I had you pass in a `url` for `MoviePoster`? In the real world, I probably would've passed in a `movie`, and read off the `Title` from within that component. I did the former to show different ways of passing in props. 😉
+> </details>
 
-**🤔 Stop and think**
+## Extract shared `MovieList`
 
-The question is always: "What does this component do?" Should `MoviePoster` *only* display the image of a movie, and some other component displays the poster and the title (i.e. `MovieThumbnail`)? What are the advantages of composing components this way? What are the disadvantages?
+There's one more component we can clearly pull out: how to render a list of movies. It should take `movies` as a proper and render them as a list. Use this newly minted component in your `Watchlist` and `AllMovies` components.
+
+There's more shared logic we can pull out, but let's stop here for now.
+
+## Reflect
+
+As you can see, React is a dynamic process of refactoring. You will often spawn new components as the need arises and opportunities for code sharing emerges.
+
+You might be wondering, "It looks like we have a shared *section* movie list component!" You're quite right, and we'll explore that in the next exercise.
 
 ## Challenges
 

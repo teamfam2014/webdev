@@ -1,21 +1,5 @@
 # Exercise 3
 
-## List all the movies
-
-Let's add a new section at the bottom to display all the movies in our database! Our users will marvel at our wide collection. 
-
-1. Create a new component, `MovieList`, which takes `movies` as a prop. You should use data from `movies.json`.
-1. Display all movies passed in. Remember to provide a `key`. Look at the data and think about what would be an appropriate property to use.
-1. It's okay that some of the movies are displayed in other sections, e.g. Featured or in the Watchlist.
-
-**🤔 Stop and think**
-
-Right now we want this new section to look roughly like this:
-
-![](https://i.imgur.com/ERK5HNO.png)
-
-Where should we include the header text, "All Movies"? Should that be in `MovieList` or something else? What would be the tradeoffs?
-
 ## Bottom-up React component design
 
 We're now seeing new patterns emerging.
