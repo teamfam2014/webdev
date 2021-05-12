@@ -15,6 +15,7 @@ const Switch = () => {
 export const App = () => (
   <div className="App">
     <Switch />
+    {/* when on, display message */}
   </div>
 )
 ```
