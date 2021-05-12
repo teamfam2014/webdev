@@ -81,4 +81,4 @@ Here are some behavior details:
 1. If [Cancel] is pressed, it should reset the form and hide it. Clicking [Add movie] again should display an empty form.
 1. When the form is submitted, it should be added to the list of all movies.
 
-Use `/public/missingMovies.json` for some sample data of movies that you can try adding.
+Use `extraMovies.json` for some sample data of movies that you can try adding.

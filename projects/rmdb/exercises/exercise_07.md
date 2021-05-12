@@ -13,17 +13,9 @@ $ yarn db
 
 You can view collections as a RESTful API, such as the `movies` that are stored. Visit a link like http://localhost:3001/movies in your browser and you'll see the movies currently stored. 
 
-The server reads from a file on disk, `/server/db.json`. We will read directly from the file in our App so we have initial data to load. (We haven't covered how to make network calls when the app first loads, so this is a temporary measure.)
+The server reads from a file on disk, `db.json`. We will read directly from the file in our App so we have initial data to load. (We haven't covered how to make network calls when the app first loads, so this is a temporary measure.)
 
-Replace your `import movies from '../public/movies.json'` with this:
-
-```js
-import db from '../server/db.json'
-
-const movies = db.movies
-```
-
-Now you'll have the movies on the initial load, just like before, but this time it'll be dynamically updated from operations in the UI.
+We've already been reading from this file, so we should see it get updated by server actions.
 
 ## Connect "Add Movie" to server
 

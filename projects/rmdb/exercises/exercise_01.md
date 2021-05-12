@@ -2,20 +2,28 @@
 
 ## Accessing movie data
 
-The file `/public/movies.json` contains a selection of data from the OMDb API. Import it into your `App.js` file:
+The file `db.json` contains a selection of data from the OMDb API. Import it into your `App.js` file:
 
 ```js
-import movies from '../public/movies.json'
+import db from './db.json'
 
-console.log(movies) // will be a JS Array
+console.log(db.movies) // will be a JS Array
 ```
+
+Normally you wouldn't keep your data file right here at the root, but hey this is an exercise.
 
 ## Working with HTML elements
 
-1. Add a nav bar and display the logo in `/public/logo.png`
+1. Add a nav bar and display the logo in `/images/logo.png`
 1. Create a smaller header saying "Featured for [today's date in mm/dd/yy]". You can just hard-code today's date for now, e.g. `4/7/21`
 1. Display an image for the featured show, WandaVision, which is the first element in `movies.json`. Set the `width` of the `img` to `75`. Display the title, "WandaVision", and its current rating: 8.1. You can hardcode all the values.
 1. Add another section called "Watchlist", which will display movies the user wants to watch, which are Soul, Spirited Away, and Batman Begins. Display them as an unordered list with just their titles as text.
+
+## Apply some basic styling
+
+Right now your navbar logo is pretty big. Let's shrink it down with some SCSS.
+
+Add a new file, 
 
 ## Working with JS values in JSX
 
