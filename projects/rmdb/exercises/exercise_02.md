@@ -65,9 +65,13 @@ There's one more component we can clearly pull out: how to render a list of movi
 
 There's more shared logic we can pull out, but let's stop here for now.
 
-## Reflect
+## Bottom-up React component design
 
 As you can see, React is a dynamic process of refactoring. You will often spawn new components as the need arises and opportunities for code sharing emerges.
+
+Sometimes, you're given UI mockups at the onset, and you can think about what React components you want to create from them.
+
+Other times, like here, you're given an evolving set of requirements. It's important to be able to constantly refactor your components as their scope and functionality shifts.
 
 You might be wondering, "It looks like we have a shared *section* movie list component!" You're quite right, and we'll explore that in the next exercise.
 

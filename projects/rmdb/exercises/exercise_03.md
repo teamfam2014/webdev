@@ -1,22 +1,31 @@
 # Exercise 3
 
-## Bottom-up React component design
+## Extract `MovieListSection`
 
-We're now seeing new patterns emerging.
+Create a component called `MovieListSection` which takes `movies` and a `title` as props, and displays the title and lists out the movies.
 
-![](https://i.imgur.com/jOkM59v.png)
-
-> Sometimes, you're given UI mockups at the onset, and you can think about what React components you want to create from them.
+> **🤔 Stop and think**
 > 
-> Other times, like here, you're given an evolving set of requirements. It's important to be able to constantly refactor your components as their scope and functionality shifts.
-
-1. Think about what composable components we could use to create this UI.
-1. Refactor your code to optimize for code re-use
-1. If you didn't already, create a component called `MovieListSection` which takes `movies` and a `title` as props, and displays the title and lists out the movies.
+> At this point, the `Watchlist` and `AllMovies` components don't really do much. Are they worth keeping around?
+> 
+> Depends on what you think are the requirements. Maybe they will start to differ in the future, although maybe not.
+> 
+> It can also be nice to keep the high-level view of the App pretty abstracted:
+> 
+> ```
+> <App>
+>   <NavBar />
+>   <FeaturedMovie />
+>   <Watchlist />
+>   <AllMovies />
+> </App>
+> ```
 
 ## Add filters for TV or movies
 
-Right now, we're mixing TV series and movies together. Let's give some control to the user, and let them choose to display any of the following:
+Right now, we're mixing TV series and movies together. Product comes back and says they want filters for each display of movies. 
+
+Let's give some control to the user, and let them choose to display any of the following:
 
 1. Only TV series (those with `type: 'series'`)
 1. Only movies (those with `type: 'movie'`)
@@ -32,12 +41,12 @@ You should be adding this code to the `MovieListSection` component.
 
 There are *many ways* to solve this challenge. Here's one way.
 
-- Track a piece of state, `filterType`, which will could be `'all'`, `'movie'`, or `'series'`
-- When it's `'all'`, use all movies, otherwise filter the movies down with `Array#filter`
+- Track a piece of state, `filterType`, which will could be `null`, `'movie'`, or `'series'`
+- When it's `null`, use all movies, otherwise filter the movies down with `Array#filter`
 - You could do something like this:
 
 ```js
-const allMovies = filterType === 'all' ? movies : movies.filter(m => m.type === filterType)
+const filteredMovies = filterType === 'all' ? movies : movies.filter(m => m.type === filterType)
 ```
 
 </details>

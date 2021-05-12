@@ -6,9 +6,15 @@ Users have written in to complain that they can't add to their watchlist. Time t
 
 1. Include a [+] button on each movie thumbnail, so it looks something [like this](https://i.imgur.com/uaJ6ElD.png)
 1. When clicked, it adds this movie to the watchlist
-1. For this to work, you'll need to pass an event handler as props down to the `MovieThumbnail`
+1. For this to work, you'll need to pass an event handler as props down to the `MovieThumbnail`. This will involve drilling through a number of components.
 
 ![](https://i.imgur.com/P57ZfNl.png)
+
+## Don't show [+] button in Watchlist
+
+It seems strange to have the [+] appearing in the Watchlist, so a user can... add to the watchlist it's already in?
+
+Go ahead and hide the [+] in the Watchlist section.
 
 ## Prevent redundant entries
 
@@ -23,40 +29,33 @@ You'll need to check if the array of `watchlistMovies` already contains the movi
 
 </details>
 
-## Provide special information for each movie list
+## Create another section
 
-You are told that the Watchlist movies need to display the year they were made, while the All Movies movies needs to display whether they're a TV series or movie.
+Product comes back and says they've published a [Watch Guide] and [Most Popular] page where people can get more info. You're directed to put this section below the All Movies section.
 
-> **🤔 Stop and think**
-> 
-> What do we use to make a component more extensible?
-> 
-> <details><summary>Click here for an answer</summary>
-> 
-> Props! 
-> 
-> They could be named like `showYear`, `showType`, etc. if we want to keep control inside the component.
-> 
-> Or, we could invert control with the `children` prop and make the consumer pass in the information.
-> </details>
+They also say the styling you've used for each section header is looking pretty cool, and would like you to reuse it.
 
-Since we just learned about composition with `children` prop, let's use that this time:
+They also want to pass in subtitles for each section, with messages like:
 
-```js
-// for Watchlist
-<MovieThumbnail props...>
-  {movie.Title}
-  {movie.Year}
-</MovieThumbnail>
+- **Watchlist**: Dive into your favorites!
+- **All Movies**: Discover something new.
+- **Learn More**: Not sure what to pick? We're here to help.
 
-// for All Movies
-<MovieThumbnail props...>
-  {movie.Title}
-  {movie.Type}
-</MovieThumbnail>
+Have a little fun with styling and make the subtitle display nicely and differently from the title.
+
+Build a `Section` component that encapsulates logic of display a title in a fancy way. Then use that component in `MovieListSection`, as well as a new top-level component called `LearnMore`. Use the `children` props pattern to make it easy to pass in an arbitrary amount of JSX into `Section` and have it rendered in a specific place.
+
+For the `LearnMore` component, display links to this [Learn More](https://www.imdb.com/what-to-watch/watch-guides/?ref_=hm_watch_wchgd) and [Most Popular](https://www.imdb.com/what-to-watch/popular/?ref_=hm_watch_pop). Since they're a different website, have them pop in a new tab since it's on a different site.
+
+The way you do that is with `target="_blank"`, but there's a security issue there so you need to do a bit more:
+
+```javascript
+<a href="www.foo.com" target="_blank" rel="noopener noreferrer">External link</a>
 ```
 
-We can safely assume that `MovieThumbnail` should always display the [+] button to add to watchlist.
+Create a shared component `ExternalLink` that takes `children` and displays a `a` link with the proper security setup, so you never have to remember that again.
+
+You'll need to add some styling to those links, such as give some margin so they're not squished against each other. Extend `Section` so you can provide it with a `className` prop, and then create some styling for the `.LearnMore a` links so they have margin. 
 
 ## Challenges
 
@@ -72,7 +71,7 @@ This means you'll be passing a different set of filters into each `MovieListSect
 
 Looks like a job for Lifting State Up and Composition! 🦸‍♀️
 
-Your end code should look something like this:
+Your end code might look something like this:
 
 ```js
 <MovieListSection movies={watchlistMovies}>
