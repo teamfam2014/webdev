@@ -11,7 +11,7 @@ export const NavBar = () => {
 
   return (
     <nav className="NavBar">
-      <img src={logo} />
+      <img src={logo} alt="Logo" />
       {user ? (
         <UserSummary user={user} onSignOut={handleSignOut} />
       ) : (
