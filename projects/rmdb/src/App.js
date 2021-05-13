@@ -2,19 +2,28 @@ import './App.scss'
 import { NavBar } from './NavBar'
 import { FeaturedMovie } from './FeaturedMovie'
 import { Watchlist } from './Watchlist'
-import db from './db.json'
 import { AllMovies } from './AllMovies'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LearnMore } from './LearnMore'
 import { MovieEdit } from './MovieEdit'
 import axios from 'axios'
 import { MovieAdd } from './MovieAdd'
 
 export const App = () => {
-  const [movies, setMovies] = useState(db.movies)
+  console.log('render')
+  const [loading, setLoading] = useState(true)
+  const [movies, setMovies] = useState([])
   const featuredMovie = movies[0]
   const [watchlistMovies, setWatchlistMovies] = useState(movies.filter(movie => movie.watchlist))
   const [editingMovie, setEditingMovie] = useState(null)
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('http://localhost:3001/movies')
+      setMovies(data)
+      setLoading(false)
+    })()
+  }, [])
 
   const handleAddWatchlist = (movie) => {
     setWatchlistMovies(watchlistMovies.includes(movie) ? watchlistMovies : [...watchlistMovies, movie])
@@ -40,14 +49,20 @@ export const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <FeaturedMovie featuredMovie={featuredMovie} />
-      <Watchlist watchlistMovies={watchlistMovies} />
-      <AllMovies movies={movies} onAdd={handleAddWatchlist} onEdit={handleEditMovie} />
-      <MovieAdd onSave={handleSaveAdd} />
-      {editingMovie && (
-        <MovieEdit movie={editingMovie} onClose={() => { setEditingMovie(null) }} onSave={handleSaveEdit} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {featuredMovie && (<FeaturedMovie featuredMovie={featuredMovie} />)}
+          <Watchlist watchlistMovies={watchlistMovies} />
+          <AllMovies movies={movies} onAdd={handleAddWatchlist} onEdit={handleEditMovie} />
+          <MovieAdd onSave={handleSaveAdd} />
+          {editingMovie && (
+            <MovieEdit movie={editingMovie} onClose={() => { setEditingMovie(null) }} onSave={handleSaveEdit} />
+          )}
+          <LearnMore />
+        </>
       )}
-      <LearnMore />
     </div>
   )
 }

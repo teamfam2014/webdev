@@ -11,7 +11,7 @@ export const NavBar = () => {
 
   return (
     <nav className="NavBar">
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="RMDb logo" />
       {user ? (
         <UserSummary user={user} onSignOut={handleSignOut} />
       ) : (
