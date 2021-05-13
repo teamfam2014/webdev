@@ -15,7 +15,50 @@ Make sure you have the `useEffect` hook only run once, otherwise you'll create a
 
 Now that you're loading from the server, you won't start off initially with a featured movie. Your app will probably crash until you conditionally render the `FeaturedMovie` section.
 
-## Identify the UI bug
+## Fix the Watchlist
+
+Chances are good that your Watchlist will break. Either it will stop showing movies, or the [+] to Watchlist feature stops working.
+
+What's wrong with this code?
+
+```javascript
+const [movies, setMovies] = useState([])
+const [watchlistMovies, setWatchlistMovies] = useState(movies.filter(movie => movie.watchlist))
+```
+
+Even after `movies` is populated, `watchlistMovies` is still `[]`. What's going on?
+
+<details><summary>Click here for the explanation</summary>
+
+We're passing in an initial state for `watchlistMovies`, which is a filtered **empty** array.
+
+While subsequent renders do have the `movies` populated, we're now ignoring that initial state value since we've already run the hook once.
+
+</details>
+
+You'll need to figure out a way to fix the issue and have `watchlistMovies` do two things:
+
+1. Be a piece of state that can be modified
+1. Load in new movies to the watchlist when the `movies` array changes.
+
+How might we do that? How do we take action when a piece of data changes?
+
+<details><summary>Click here for the answer</summary>
+
+You should use `useEffect`, and pass in `movies` as a watch variable:
+
+```javascript
+useEffect(() => {
+  // ...
+}, [movies])
+```
+</details>
+
+**If you want a challenge**, find a way to persist your changes to the watchlist. You should send a `PUT` request to `http://localhost:3001/movies/[id]`, and give it the movie with an extra property, `watchlist: true` to put it into the watchlist.
+
+## Challenges
+
+### Identify the UI bug
 
 > **🤔 Stop and think**
 > 
@@ -33,7 +76,7 @@ Reload your page, and notice your very beautiful app with blank sections of the 
 
 This looks like a job for some loading messages! There are so many ways to indicate a loading state. If you're feeling adventurous, use [one of the many libraries out there](https://reactjsexample.com/tag/loading/). Otherwise, we can start with a simple "Loading..." text. [MVP, right](https://media.giphy.com/media/HB23IM619qFtS/giphy.gif)?
 
-## Add a loading message
+### Add a loading message
 
 Let's say you have a component `ShowFoo` that should render `Foo` when we're not loading. There are many patterns for showing a loading message. Can you think of three?
 
@@ -72,8 +115,6 @@ What would be some pros/cons of each approach? 🤔
 </details>
 
 Once you've thought of your answers, click above to compare. Go ahead and implement strategy #3 this time.
-
-## Challenges
 
 ### Auto-preview the movie poster for add/edit
 
