@@ -1,0 +1,21 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+
+  .sign-in {
+    position: relative;
+  }
+
+  form {
+    position: absolute;
+    right: 0;
+    border: black 1px solid;
+    margin: 10px 0 10px 0;
+    padding: 10px;
+
+    .close-btn {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+}
