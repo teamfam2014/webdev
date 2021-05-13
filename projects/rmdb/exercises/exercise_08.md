@@ -10,6 +10,8 @@ Next, let's add a `useEffect` hook to make a GET request to `http://localhost:30
 
 Make sure you have the `useEffect` hook only run once, otherwise you'll create an infinite loop.
 
+Now that you're loading from the server, you won't start off initially with a featured movie. Your app will probably crash until you conditionally render the `FeaturedMovie` section.
+
 ## Identify the UI bug
 
 > **🤔 Stop and think**
