@@ -2,4 +2,12 @@
   nav img {
     width: 50px;
   }
+
+  .form-group {
+    margin-bottom: 10px;
+
+    label:not(.checkbox) {
+      display: block
+    }
+  }
 }

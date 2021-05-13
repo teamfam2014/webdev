@@ -1,6 +1,5 @@
 import { useState } from 'react'
-
-const updateField = (setter) => e => setter(e.target.value)
+import { withInputChange } from './withInputChange'
 
 export const SignInForm = ({ onSignIn }) => {
   const [showSignIn, setShowSignIn] = useState(false)
@@ -26,9 +25,9 @@ export const SignInForm = ({ onSignIn }) => {
             <button type="button" onClick={() => setShowSignIn(false)}>x</button>
           </div>
           <label htmlFor="username">Username</label>
-          <input type="text" value={username} onChange={updateField(setUsername)} />
+          <input type="text" value={username} onChange={withInputChange(setUsername)} />
           <label htmlFor="password">Password</label>
-          <input type="password" value={password} onChange={updateField(setPassword)} />
+          <input type="password" value={password} onChange={withInputChange(setPassword)} />
           <button type="submit">Submit</button>
         </form>
       )}
