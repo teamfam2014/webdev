@@ -78,4 +78,12 @@ Product comes back saying the [Preview] button for the movie poster is annoying 
 
 Add a `useEffect` to track changes to the URL input, and update the `src` of the preview `img` accordingly.
 
-**Bonus challenge**: Right now, as the user is typing, there's a *bunch* of bad image URLs being tried out. See if you can [debounce](https://redd.one/blog/debounce-vs-throttle) the logic so it only loads the image after there's a pause in the user's typing. Debounce won't work the way you might think with `useEffect`, so check out [this Stack Overflow answer](https://stackoverflow.com/a/61786423/2672869) and then read through [this article to deal with the ESLint errors](https://kyleshevlin.com/debounce-and-throttle-callbacks-with-react-hooks).  
+**Bonus challenge**: Right now, as the user is typing, there's a *bunch* of bad image URLs being tried out. See if you can [debounce](https://redd.one/blog/debounce-vs-throttle) the logic so it only loads the image after there's a pause in the user's typing. Debounce won't work the way you might think with `useEffect`, so check out [this Stack Overflow answer](https://stackoverflow.com/a/61786423/2672869) and then read through [this article to deal with the ESLint errors](https://kyleshevlin.com/debounce-and-throttle-callbacks-with-react-hooks).
+
+### Show loading indicators for other network actions
+
+Adding, editing, deleting, they all just hang for a couple seconds with a slower server.
+
+Research shows that anything longer than 100ms between action and response breaks the user's expectation of responsiveness, and they'll think something is wrong with the app. Google did an excellent on the **R**esponse **A**nimation **I**dle **L**oad (RAIL) model [here](https://web.dev/rail/).
+
+Add loading indicators for all these actions! How you do it is up to you.
