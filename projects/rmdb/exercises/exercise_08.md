@@ -78,4 +78,4 @@ Product comes back saying the [Preview] button for the movie poster is annoying 
 
 Add a `useEffect` to track changes to the URL input, and update the `src` of the preview `img` accordingly.
 
-**Bonus challenge**: Right now, as the user is typing, there's a *bunch* of bad image URLs being tried out. See if you can [debounce](https://redd.one/blog/debounce-vs-throttle) the logic so it only loads the image after there's a pause in the user's typing. Debounce won't work the way you might think with `useEffect`, so check out [this Stack Overflow answer](https://stackoverflow.com/a/61786423/2672869) for a deep-dive.  
+**Bonus challenge**: Right now, as the user is typing, there's a *bunch* of bad image URLs being tried out. See if you can [debounce](https://redd.one/blog/debounce-vs-throttle) the logic so it only loads the image after there's a pause in the user's typing. Debounce won't work the way you might think with `useEffect`, so check out [this Stack Overflow answer](https://stackoverflow.com/a/61786423/2672869) and then read through [this article to deal with the ESLint errors](https://kyleshevlin.com/debounce-and-throttle-callbacks-with-react-hooks).  
