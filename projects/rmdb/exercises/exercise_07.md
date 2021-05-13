@@ -1,5 +1,8 @@
 # Exercise 7
 
+- [Starting point from exercise 6 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-6-solution/projects/rmdb)
+- [Exercise 7 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-7-solution/projects/rmdb)
+
 ## Switch to a dynamic database
 
 We've be using a static `db.json` file up to this point. Any changes made in the UI are forgotten when the page reloads. Not a very good app yet. It's time to switch over to a simple CRUD server so we can persist our changes.
