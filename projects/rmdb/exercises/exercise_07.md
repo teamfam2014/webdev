@@ -53,6 +53,8 @@ You should use `axios`, so you'll need to add it to your packages:
 $ yarn add axios
 ```
 
+Make sure you don't close the edit form in the UI until the server responds with a `200 OK`, just in case something goes wrong on the server!
+
 That's it! This exercise is shorter as a chance to take a breather if you need it, catch up on old exercises, or dig into some of the challenges you may have skipped over. See below to keep going.
 
 ## Challenges
@@ -63,8 +65,12 @@ When adding a new movie from the UI, we should save these changes to the databas
 
 If you haven't already implemented an "Add Movie" feature, do that first in the [challenges section of exercise 5](https://github.com/AndrewSouthpaw/webdev/blob/master/projects/rmdb/exercises/exercise_05.md#create-an-add-movie-section).
 
+Bonus challenge: find a way to not close the "Add Movie" form until the server responds with a 200 OK. You can add latency to the server by running `$ yarn db-slow` instead of `$ yarn db` to help with debugging.
+
 ### Connect "Delete Movie" to server
 
 Make a DELETE request to `http://localhost:3001/movies/[id]` to delete that movie.
+
+Make sure you don't remove the movie from the UI until the server responds with a `200 OK`, just in case something goes wrong on the server!
 
 If you haven't already implemented an "Delete Movie" feature, do that first in the [challenges section of exercise 6](https://github.com/AndrewSouthpaw/webdev/blob/master/projects/rmdb/exercises/exercise_06.md#allow-a-movie-to-be-deleted).
