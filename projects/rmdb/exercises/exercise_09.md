@@ -1,5 +1,8 @@
 # Exercise 9
 
+- [Starting point from exercise 8 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-8-solution/projects/rmdb)
+- [Exercise 9 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-9-solution/projects/rmdb)
+
 ## Extract movie state logic
 
 There's a lot of logic sitting in the App component right now. Let's extract the business logic that manages the movies state.

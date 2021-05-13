@@ -1,5 +1,8 @@
 # Exercise 8
 
+- [Starting point from exercise 7 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-7-solution/projects/rmdb)
+- [Exercise 8 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-8-solution/projects/rmdb)
+
 ## Load movies from database on initial render
 
 We've been reading directly from the `/server/db.json` file, which doesn't seem realistic. Let's now actually make a request to the server for the initial payload of movies when the app renders the first time.

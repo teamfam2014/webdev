@@ -1,5 +1,8 @@
 # Exercise 11
 
+- [Starting point from exercise 10 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-10-solution/projects/rmdb)
+- [Exercise 11 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-11-solution/projects/rmdb)
+
 ## Implement [Sign up] page
 
 Users have started to complain about there being only one account for RMDb: the "admin" account. Guess it's time to let users create their own accounts.

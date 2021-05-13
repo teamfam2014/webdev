@@ -1,5 +1,8 @@
 # Exercise 12
 
+- [Starting point from exercise 11 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-11-solution/projects/rmdb)
+- [Exercise 12 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-12-solution/projects/rmdb)
+
 ## Test a simple component
 
 Let's get started with writing a unit test for a simple component. The `MovieThumbnail` component would be a good candidate -- it has some props but no stateful behavior.

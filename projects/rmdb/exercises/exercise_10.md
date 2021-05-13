@@ -1,5 +1,8 @@
 # Exercise 10
 
+- [Starting point from exercise 9 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-9-solution/projects/rmdb)
+- [Exercise 10 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-10-solution/projects/rmdb)
+
 ## Store auth in context
 
 More and more of your app relies on knowledge of whether the user is authenticated. You're passing that knowledge through `props` all over the place and it's getting out of hand.
