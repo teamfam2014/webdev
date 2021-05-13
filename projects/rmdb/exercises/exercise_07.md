@@ -74,3 +74,7 @@ Make a DELETE request to `http://localhost:3001/movies/[id]` to delete that movi
 Make sure you don't remove the movie from the UI until the server responds with a `200 OK`, just in case something goes wrong on the server!
 
 If you haven't already implemented an "Delete Movie" feature, do that first in the [challenges section of exercise 6](https://github.com/AndrewSouthpaw/webdev/blob/master/projects/rmdb/exercises/exercise_06.md#allow-a-movie-to-be-deleted).
+
+### Handle error cases
+
+Right now we've only managed the happy path, but things are bound to go wrong. Gracefully handle errors when they come back from the server. An easy way to trigger errors is to turn off your `json-server` once you've loaded your app.
