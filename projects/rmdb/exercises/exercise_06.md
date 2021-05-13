@@ -4,9 +4,22 @@
 
 Feedback from Product says that users want to be able to correct inaccuracies on the site. That seems reasonable to support, considering RMDb leans on user-provided data anyway.
 
-Add an [Edit] button for movies in the "All Movies" section. When the button is clicked, show that movie below in a section below. It should display a `form` with fields for the movie.
+Add an [Edit] button for movies in the "All Movies" section. When the button is clicked, show that movie below in a section below. You'll need to do some prop drilling to give the `MovieThumbnail` an event handler for this new button, and relay all the way back up to the `App` (I went through 5 components?) to manage the state. Phew! It feels like I'm on an oil derrick.
+
+Encapsulate this in a new component, `MovieEdit`, which shows only when a movie is being edited. It should display a `form` with fields for the movie.
 
 ![](https://i.imgur.com/NQZ88LC.png)
+
+The user should be able to set the following information:
+
+```
+Title
+Year
+Type
+Poster
+imdbRating
+imdbID
+```
 
 Here are some details of behavior:
 
@@ -16,7 +29,21 @@ Here are some details of behavior:
 1. The `Type` should be `radio` inputs. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio).
 1. The `Poster` should be `<input type="url">`. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url).
 1. The `imdbRating` should be a `number` with `0.1` as the step value.
+1. The `imdbID` should be hidden but still tracked so we can connect it to the object in the data store.
+1. All fields should be required.
 1. Clicking [Cancel] does not save changes and stops editing the movie, hiding the form.
+
+When the form is saved, it should send back an updated `movie` object to the `onSave` handler for `MovieEdit`. `App` will need to do something reasonable with this updated movie object, i.e. update the movies state!
+
+You probably are still reading directly off the database, so you'll need to pass that initial value into a new piece of state so the movies collection is now editable as well.
+
+```
+const [movies, setMovies] = useState(db.movies)
+```
+
+You'll need to use one of your CRUD operations to **immutably** update the `movies` state with the new, updated movie.
+
+## Challenges
 
 ## Allow a movie to be deleted
 
@@ -31,8 +58,6 @@ Display a [Delete] button next to the [Edit] button for each movie in the "All M
 In the previous exercise, the challenge was to implement an [Add Movie] section. Now that you've made the [Edit Movie] section, it seems like the two are basically the same! See if you can reuse code for both, and find ways to deal with the small variations between the two views.
 
 If you haven't made an "Add Movie" section, refer to the instructions in the previous exercise. It's basically the same as the one you just made, with slight variations.
-
-## Challenges
 
 ### Allow poster to be previewed when adding/editing movie
 
