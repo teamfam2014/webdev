@@ -1,5 +1,7 @@
 # Exercise 4
 
+[Starting point from exercise 3](https://github.com/AndrewSouthpaw/webdev/tree/exercise-3-solution/projects/rmdb).
+
 ## Add to the watchlist
 
 Users have written in to complain that they can't add to their watchlist. Time to add that functionality!
@@ -56,6 +58,10 @@ The way you do that is with `target="_blank"`, but there's a security issue ther
 Create a shared component `ExternalLink` that takes `children` and displays a `a` link with the proper security setup, so you never have to remember that again.
 
 You'll need to add some styling to those links, such as give some margin so they're not squished against each other. Extend `Section` so you can provide it with a `className` prop, and then create some styling for the `.LearnMore a` links so they have margin. 
+
+## Compare and contrast
+
+Compare your work against the solution [here](https://github.com/AndrewSouthpaw/webdev/tree/exercise-4-solution/projects/rmdb).
 
 ## Challenges
 
