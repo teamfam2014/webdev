@@ -78,14 +78,14 @@ Day 3
 <<(../content/js/react/forms-controlled.md)
 <<(../content/js/react/crud.md)
 
-# React Lifecycle
-
-<<(../content/js/react/lifecycle-hooks.md)
-
 # Async React
 
 <<(../content/js/async/axios.md)
 <<(../content/js/react/async.md)
+
+# React Lifecycle
+
+<<(../content/js/react/lifecycle-hooks.md)
 
 # Hooks
 
