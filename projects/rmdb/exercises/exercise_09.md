@@ -78,3 +78,5 @@ const useList = (initialValue: T): UseListResultT => {}
 ```
 
 </details>
+
+For an additional challenge, persist the watchlist changes to the database. See if you can extend `useList` to handle both managing a list in React state *and* making configurable calls to the database. Definitely a real challenge!
