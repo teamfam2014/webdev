@@ -29,7 +29,8 @@ Here are some details of behavior:
 1. The `Type` should be `radio` inputs. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio).
 1. The `Poster` should be `<input type="url">`. [Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url).
 1. The `imdbRating` should be a `number` with `0.1` as the step value.
-1. The `imdbID` should be hidden but still tracked so we can connect it to the object in the data store.
+1. `imdbID` should be a `text` input.
+1. You should still keep track of the `id` somewhere so you can use it to update the object in the data store.
 1. All fields should be required.
 1. Clicking [Cancel] does not save changes and stops editing the movie, hiding the form.
 
