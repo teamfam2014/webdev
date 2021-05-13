@@ -66,3 +66,7 @@ Without changing your component structure, think about how to *not* show filters
 - Remember you can use conditional rendering, based off props
 - Try passing in a prop to `MovieListSection` like `filterable`, and only display the filters when that prop is set to `true`
 </details>
+
+## Compare and contrast
+
+When you're done, compare against the solution [here](https://github.com/AndrewSouthpaw/webdev/tree/exercise-3-solution/projects/rmdb).
