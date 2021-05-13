@@ -1,5 +1,8 @@
 # Exercise 6
 
+- [Starting point from exercise 5 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-5-solution/projects/rmdb)
+- [Exercise 6 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-6-solution/projects/rmdb)
+
 ## Allow movie to be edited
 
 Feedback from Product says that users want to be able to correct inaccuracies on the site. That seems reasonable to support, considering RMDb leans on user-provided data anyway.
