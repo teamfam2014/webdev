@@ -1,5 +1,7 @@
 # Exercise 3
 
+[Starting point from exercise 2](https://github.com/AndrewSouthpaw/webdev/tree/exercise-2-solution/projects/rmdb).
+
 ## Extract `MovieListSection`
 
 Create a component called `MovieListSection` which takes `movies` and a `title` as props, and displays the title and lists out the movies.
