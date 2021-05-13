@@ -3,35 +3,23 @@ import { NavBar } from './NavBar'
 import { FeaturedMovie } from './FeaturedMovie'
 import { Watchlist } from './Watchlist'
 import { AllMovies } from './AllMovies'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { LearnMore } from './LearnMore'
 import { MovieEdit } from './MovieEdit'
-import axios from 'axios'
 import { MovieAdd } from './MovieAdd'
-import { assocPath } from 'ramda'
+import { useMovies } from './useMovies'
 
 export const App = () => {
-  const [loading, setLoading] = useState(true)
-  const [movies, setMovies] = useState([])
-  const [watchlistMovies, setWatchlistMovies] = useState([])
+  const { movies, loading, addMovie, editMovie } = useMovies()
   const featuredMovie = movies[0]
   const [editingMovie, setEditingMovie] = useState(null)
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get('http://localhost:3001/movies')
-      setMovies(data)
-      setLoading(false)
-    })()
-  }, [])
+  const handleAddWatchlist = async (movie) => {
+    await editMovie({ ...movie, watchlist: true })
+  }
 
-  useEffect(() => {
-    setWatchlistMovies(movies.filter(movie => movie.watchlist))
-  }, [movies])
-
-  const handleAddWatchlist = (movie) => {
-    const index = movies.findIndex(m => m.id === movie.id)
-    setMovies(assocPath([index, 'watchlist'], true, movies))
+  const handleRemoveWatchlist = async (movie) => {
+    await editMovie({ ...movie, watchlist: false  })
   }
 
   const handleEditMovie = (movie) => {
@@ -39,17 +27,11 @@ export const App = () => {
   }
 
   const handleSaveEdit = async (updatedMovie) => {
-    await axios.put(`http://localhost:3001/movies/${updatedMovie.id}`, updatedMovie)
-    setMovies(movies.map(movie => (
-      movie.imdbID === updatedMovie.imdbID ? updatedMovie : movie
-    )))
+    await editMovie(updatedMovie)
     setEditingMovie(null)
   }
 
-  const handleSaveAdd = async (movie) => {
-    const { data } = await axios.post('http://localhost:3001/movies', movie)
-    setMovies([...movies, data])
-  }
+  const handleSaveAdd = async (movie) => addMovie(movie)
 
   return (
     <div className="App">
@@ -59,7 +41,7 @@ export const App = () => {
       ) : (
         <>
           {featuredMovie && (<FeaturedMovie featuredMovie={featuredMovie} />)}
-          <Watchlist watchlistMovies={watchlistMovies} />
+          <Watchlist movies={movies} onRemove={handleRemoveWatchlist} />
           <AllMovies movies={movies} onAdd={handleAddWatchlist} onEdit={handleEditMovie} />
           <MovieAdd onSave={handleSaveAdd} />
           {editingMovie && (

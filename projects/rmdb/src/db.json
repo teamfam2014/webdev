@@ -54,6 +54,15 @@
       "Poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "watchlist": true,
       "imdbRating": "8.2"
+    },
+    {
+      "imdbID": "aewr",
+      "Title": "Thor",
+      "Year": "2017",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI@._V1_SX300.jpg",
+      "imdbRating": "2",
+      "id": 6
     }
   ]
 }
