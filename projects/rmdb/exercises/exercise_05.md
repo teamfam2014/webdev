@@ -1,5 +1,8 @@
 # Exercise 5
 
+- [Starting point from exercise 4 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-4-solution/projects/rmdb)
+- [Solution for Exercise 5](https://github.com/AndrewSouthpaw/webdev/tree/exercise-5-solution/projects/rmdb)
+
 ## Create [Sign in] form
 
 Add a [Sign in] button to the `NavBar`. When clicked, it should render a small `form` that takes a username and password.
