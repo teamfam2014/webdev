@@ -91,10 +91,6 @@ Day 3
 
 <<(../content/js/react/hooks.md)
 
-# React Context
-
-<<(../content/js/react/context.md)
-
 # Routing
 
 <<(../content/js/react/router.md)
@@ -105,6 +101,10 @@ Day 3
 <<(../content/js/jest/async.md)
 <<(../content/js/jest/mocking.md)
 <<(../content/js/react/rtl.md)
+
+# React Context
+
+<<(../content/js/react/context.md)
 
 # Class Components
 
