@@ -3,99 +3,116 @@
 - [Starting point from exercise 10 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-10-solution/projects/rmdb)
 - [Exercise 11 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-11-solution/projects/rmdb)
 
-## Implement a Detail view for a movie
+## Test a simple component
 
-Users should be able to view details about a movie. When they click on a movie, it should direct them to `/movies/[imdbID]`. Create a new view that shows the movie details. The user should be able to click the browser [Back] button, or click some button in the UI to return to the home page.
+Let's get started with writing a unit test for a simple component. The `MovieThumbnail` component would be a good candidate -- it has some props but no stateful behavior.
 
-Something like this:
+Write your tests in a `__tests__/` folder as a sibling to the file. So your directory structure would look like this:
 
-<img src="https://i.imgur.com/gn1Z9Qr.png" width="500">
+```
+- src
+  |__ /__tests__
+      |__MovieThumbnail.test.js
+  |__ MovieThumbnail.js
+```
 
-The database currently doesn't have enough information, so do your best with what you have.
+You should already have the testing framework set up for you. All you'll need to start testing is some imports. The `describe` and `it` keywords are provided for you globally through the Jest test runner.
 
-## Handle 404 page
+```javascript
+import { render, screen } from '@testing-library/react'
 
-When the user visits an invalid ID, e.g. `/movies/foo`, and a movie isn't found, it should display some sort of "Movie not found" message.
+describe('MovieThumbnail', () => {
+  it('should render something', () => {
+    // ...
+  })
+})
+```
+
+## Test user interactions
+
+Next up, we want to test the following business case:
+
+```
+The user should be able to add a new movie
+```
+
+How should we go about testing this behavior?
+
+> **🤔 Stop and think**
+> 
+> What exactly are we wanting to test? What do we care about? What would be observable to the user?
+> 
+> At what level should we be writing this test? Two obvious options would be at the `App` level or the `AddMovie` level. What would be the pros/cons of both?
+> 
+> <details><summary>Click here for further discussion after thinking it through</summary>
+
+> There's a few observable behaviors:
+> 
+> - Initially an [Add Movie] button shows
+> - When a user clicks the [Add Movie] button, a form appears and the button goes away
+> - When user types in the form, the values appear in the inputs
+> - [Optional, if you did this] When the user enters a poster URL, it's loaded onto the screen
+> - If a user cancels and reopens the form, the form is clear
+> - If the user enters values and clicks [Add], the following happens:
+>   - The form closes (and resets values)
+>   - A network POST request is made with the data
+>   - The movie shows up in the list of All Movies
+> 
+> Testing at the `App` vs. `AddMovie` component level gives you access to asserting over different sets of behavior:
+> 
+> - `App`
+>   - Network requests
+>   - When the form is saved, the movie appears in the All Movies list
+> - `AddMovie`
+>   - Everything else
+> 
+> **Warning, 🧼📦 speech ahead.**
+>   
+> There isn't a right or wrong way to write these tests, it's about philosophy.
+> 
+> Generally, I try to exercise the happy/sad paths of a UI from the root `App` level, or whatever level provides sufficiently broad scope to see all the behavior of the UI that the user would see.
+> 
+> Any other test cases I typically push further down to the component level.
+> 
+> This keeps *most* of my tests simpler (only looking at the one component) while allowing me to ensure the component behaves sensibly in the rest of the app.
+> 
+> Some people would call this "integration" vs. "unit" tests in React. Some folks go so far as to say that "unit" tests should *only* test the component under test and mock everything else out. I would describe these as London TDD / Mockist style. Nothing wrong with it, but I find it doesn't serve me as well in frontend land.
+> 
+> My philosophy of writing tests is that they should give me confidence my program is running correctly. In my experience, heavily mocked tests don't give me that confidence unless there's a lot of integration tests to go with it, and I'm bad at remembering to write the integration tests so I'll just mock fewer things to begin with. 
+> 
+> </details>
+
+## Write tests for `AddMovie`
+
+While there's much to test, let's start with the following interaction:
+
+1. The user clicks [Add Movie]
+1. The user types in info about the movie
+1. The user submits the form
+1. Expect the `onSave` (or equivalent) prop is called with info about the movie
+
+## Write tests for `App`
+
+Here we'll again test entering movie information, but this time expect it to make a network request and show the movie in the All Movies section.
+
+1. The user clicks [Add Movie]
+1. The user types in info about the movie
+1. The user submits the form
+1. A POST network request is made to `/movies` with the movie info
+1. The movie is displayed in the All Movies section
 
 ## Challenges
 
-### Redirect user from 404 page
+### Test the `useMovies` custom hook
 
-It should then redirect the user back to the home page after 3 seconds pass. Make use of the redirect logic in `react-router` rather than manipulating `window.location`. It should be a navigation within the router, and not a page reload.
+There's a lot of great business logic in that hook! Use the `@testing-library/react-hooks` to test some of the behavior. 
 
-### Load more movie data
 
-We can pull from another API, [OMDb](http://www.omdbapi.com/), to get more detailed information about each movie. You'll need to [generate an API key](http://www.omdbapi.com/apikey.aspx) which is free and has a rate-limit to it. Once you activate it via the email they send you, queries can be made for detailed movie info. Example:
 
-http://www.omdbapi.com/?apikey=5593d6a3&i=tt3501632
 
-The format is:
 
-```
-http://www.omdbapi.com/?apikey=[apiKey]&i=[imdbID]
-```
 
-Use this dandy new database to sneak in data into RMDb. When you reach the Detail page and connect it to a movie we have in our database, use the imdbID to search for it on OMDb and then display the full set of information.
 
-### Implement watchlist add/remove button
 
-Clicking [Add to watchlist] should add it to the watchlist.
 
-When a movie is in the watchlist already, the button should say [In Watchlist]. When you hover over it, the button changes to read "Remove from watchlist".
 
-> Sidebar: showing UI on hover is often considered "bad design", as it's commonly not discoverable and is typically bad for accessibility. But, you'll probably end up seeing requirements in apps you build, so here's the opportunity to learn. You'll need to work with the `:hover` CSS selector ([docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover)).
-
-### Implement [Sign up] page
-
-Users have started to complain about there being only one account for RMDb: the "admin" account. Guess it's time to let users create their own accounts.
-
-Add a [Sign up] button that directs the user to a `/sign_up` page.
-
-On that page, display a form that accepts a `username` and `password` You should use `<input type="password">` for the latter.
-
-When the form is submitted:
-
-1. Make a `POST` to `http://localhost:3001/users` and save the new user and their plain text password
-1. Store the user in the `AuthContext`
-1. Redirect them to the home page
-
-> 👹 CAUTION
-> 
-> In a real app, you should never store a plain text password in your database. [Ever](https://plaintextoffenders.com/about/). Since we're storing them in plaintext, even if it's only locally, *do not use real passwords* you've used elsewhere.
-
-## Implement [Sign in] page
-
-Product has decided they want to make the [Sign in] page more advanced eventually, and they don't like the little dropdown form as it's currently designed. #changingRequirements
-
-When a user clicked [Sign in] from the home page, they should be directed to a `/sign_in` page. It displays a form to enter their username and password.
-
-When the user submits the form:
-
-1. Make a GET to `http://localhost:3001/users?username=[username]`
-1. This will return an array of users with that username. (There should only be one, there's not a way to match against exactly one with `json-server`.) Check that the returned user in the database matches the information in the form.
-1. If so, authenticate the user in `AuthContext` and redirect to the home page.
-
-> **Do not do that in a production app**
-> 
-> Typically you'd make a `POST` request to the auth endpoint, e.g. `/users/sign_in`, and pass along the username and password as data in the body. The server would then be responsible for verifying the credentials are valid.
-> 
-> You should **not** put credential verification logic inside the client frontend code. That code can be manipulated by enterprising hackers.
-> 
-> If you want an extra challenge, you would play with adding a new middleware on the `json-server` that authenticates the user server-side. Good practice for tinkering with NodeJS!
-
-### Add redirect logic
-
-If a user is already authenticated and visits `/sign_in`, redirect them back to the home page.
-
-**BONUS chalenge**: [Add state](https://reactrouter.com/web/api/Redirect/to-object) on the redirect to indicate the user is already authenticated, and display a message on the home page on the redirect: "Already signed in."
-
-### Provide better sign up experience
-
-1. Users are mistyping their password without realizing it. Provide a password confirmation field, and prevent submitting the form when there's a mismatch.
-1. Users want to see the password they're typing. Provide a toggle that let's them show/hide the password text.
-1. Prevent a username from being saved more than once
-1. Extra challenge: Notify that username is taken *before* they even have to submit the form
-
-### Extract logic to `useAuth`
-
-You can pull into `useAuth` the logic you created to check against the database results. Custom hooks for the win!
