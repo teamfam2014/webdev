@@ -21,7 +21,7 @@ You should already have the testing framework set up for you. All you'll need to
 ```javascript
 import { render, screen } from '@testing-library/react'
 
-describe('MovieThumbnail', () => {
+describe('Section', () => {
   it('should render a title and subtitle', () => {
     // ...
   })
