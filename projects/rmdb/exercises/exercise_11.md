@@ -3,7 +3,49 @@
 - [Starting point from exercise 10 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-10-solution/projects/rmdb)
 - [Exercise 11 solution](https://github.com/AndrewSouthpaw/webdev/tree/exercise-11-solution/projects/rmdb)
 
-## Implement [Sign up] page
+## Implement a Detail view for a movie
+
+Users should be able to view details about a movie. When they click on a movie, it should direct them to `/movies/[imdbID]`. Create a new view that shows the movie details. The user should be able to click the browser [Back] button, or click some button in the UI to return to the home page.
+
+Something like this:
+
+<img src="https://i.imgur.com/gn1Z9Qr.png" width="500">
+
+The database currently doesn't have enough information, so do your best with what you have.
+
+## Handle 404 page
+
+When the user visits an invalid ID, e.g. `/movies/foo`, and a movie isn't found, it should display some sort of "Movie not found" message.
+
+## Challenges
+
+### Redirect user from 404 page
+
+It should then redirect the user back to the home page after 3 seconds pass. Make use of the redirect logic in `react-router` rather than manipulating `window.location`. It should be a navigation within the router, and not a page reload.
+
+### Load more movie data
+
+We can pull from another API, [OMDb](http://www.omdbapi.com/), to get more detailed information about each movie. You'll need to [generate an API key](http://www.omdbapi.com/apikey.aspx) which is free and has a rate-limit to it. Once you activate it via the email they send you, queries can be made for detailed movie info. Example:
+
+http://www.omdbapi.com/?apikey=5593d6a3&i=tt3501632
+
+The format is:
+
+```
+http://www.omdbapi.com/?apikey=[apiKey]&i=[imdbID]
+```
+
+Use this dandy new database to sneak in data into RMDb. When you reach the Detail page and connect it to a movie we have in our database, use the imdbID to search for it on OMDb and then display the full set of information.
+
+### Implement watchlist add/remove button
+
+Clicking [Add to watchlist] should add it to the watchlist.
+
+When a movie is in the watchlist already, the button should say [In Watchlist]. When you hover over it, the button changes to read "Remove from watchlist".
+
+> Sidebar: showing UI on hover is often considered "bad design", as it's commonly not discoverable and is typically bad for accessibility. But, you'll probably end up seeing requirements in apps you build, so here's the opportunity to learn. You'll need to work with the `:hover` CSS selector ([docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover)).
+
+### Implement [Sign up] page
 
 Users have started to complain about there being only one account for RMDb: the "admin" account. Guess it's time to let users create their own accounts.
 
@@ -41,13 +83,11 @@ When the user submits the form:
 > 
 > If you want an extra challenge, you would play with adding a new middleware on the `json-server` that authenticates the user server-side. Good practice for tinkering with NodeJS!
 
-## Add redirect logic
+### Add redirect logic
 
 If a user is already authenticated and visits `/sign_in`, redirect them back to the home page.
 
 **BONUS chalenge**: [Add state](https://reactrouter.com/web/api/Redirect/to-object) on the redirect to indicate the user is already authenticated, and display a message on the home page on the redirect: "Already signed in."
-
-## Challenges
 
 ### Provide better sign up experience
 
@@ -55,12 +95,6 @@ If a user is already authenticated and visits `/sign_in`, redirect them back to 
 1. Users want to see the password they're typing. Provide a toggle that let's them show/hide the password text.
 1. Prevent a username from being saved more than once
 1. Extra challenge: Notify that username is taken *before* they even have to submit the form
-
-### Implement a Detail view for a movie
-
-Users should be able to view details about a movie. When they click on a movie, it should direct them to `/movies/[imdbID]`. Create a new view that shows the movie details. The user should be able to click the browser [Back] button, or click some button in the UI to return to the home page.
-
-When the user visits an invalid ID, e.g. `/movies/foo`, and a movie isn't found, it should display some sort of "Movie not found" message.
 
 ### Extract logic to `useAuth`
 
