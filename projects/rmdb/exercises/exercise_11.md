@@ -52,12 +52,19 @@ describe('MovieThumbnail', () => {
         <MovieThumbnail propsGoHere={42} />
       </MemoryRouter>,
     )
-    // ...
+    
+    // here you should test that the movie information is displayed,
+    // and the link will point to /movies/[id]
   })
 
-  it('should render children', () => {})
+  it('should render children', () => {
+    // here you should test that children you pass in will be rendered.
+  })
 
-  it('should render buttons and pass movie back', () => {})
+  it('should render buttons and pass movie back', () => {
+    // here, you should test behavior of onAdd, onEdit, onDelete
+    // and make sure they run when their corresponding buttons are clicked.
+  })
 })
 
 ```
