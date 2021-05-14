@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { withInputChange } from './withInputChange'
+import { AuthContext } from './contexts/auth'
 
-export const SignInForm = ({ onSignIn }) => {
+export const SignInForm = () => {
   const [showSignIn, setShowSignIn] = useState(false)
+  const { signIn } = useContext(AuthContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const handleSubmit = (e) => {
     e.preventDefault()
     if (username === 'admin' && password === 'password') {
-      onSignIn({ username: 'admin' })
+      signIn({ username: 'admin' })
       setUsername('')
       setPassword('')
     }

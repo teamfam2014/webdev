@@ -1,14 +1,13 @@
 import logo from './images/logo.png'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './NavBar.scss'
 import { SignInForm } from './SignInForm'
 import { UserSummary } from './UserSummary'
 import { Link, Route } from 'react-router-dom'
+import { AuthContext } from './contexts/auth'
 
 export const NavBar = () => {
-  const [user, setUser] = useState(null)
-
-  const handleSignOut = () => { setUser(null) }
+  const { user } = useContext(AuthContext)
 
   return (
     <nav className="NavBar">
@@ -21,9 +20,9 @@ export const NavBar = () => {
         <img src={logo} alt="RMDb logo" />
       </div>
       {user ? (
-        <UserSummary user={user} onSignOut={handleSignOut} />
+        <UserSummary />
       ) : (
-        <SignInForm onSignIn={setUser} />
+        <SignInForm />
       )}
     </nav>
   )
