@@ -49,18 +49,19 @@ There are some really great hook libraries out there dedicated to managing data 
 
 Pick one of them to try out and learn about how they work.
 
-### Create editable watchlist
+### Create CRUD-y watchlist
 
-Our Watchlist needs some love. Right now you can add movies to the watchlist, but you can't remove them once you're finished watching. We want the basic CRUD operations for a watchlist, and right now we only have the C and R.
+Our Watchlist needs some love. Right now you can add movies to the watchlist, but you can't remove them once you're finished watching. We want the basic CRUD operations for a watchlist, and to have them persisted.
 
-You may notice that we're also doing CRUD operations in `useMovies`. That hook is currently managing two things:
+It turns out maintaining a separate state array of `watchlistMovies` wasn't the best strategy. Let's use the existing `useMovies` functionality to update the `watchlist` property in those movies, and then always derive from the list of `movies` to list our watchlist movies. Remove any `useState` associated with tracking watchlist movies separately.
 
-1. CRUD operations on a list of values
-1. Network calls to persist changes
+The neat part is that we get all the network operations for free!
 
-We're about to build CRUD logic for *another* list of values, so it sounds like a good opportunity for another custom hook.
+### Build a useList custom hook
 
-Create a `useList` which implements the basic CRUD operations for maintaining a list of values in React state. Use that inside `useMovies`, and then reuse it for `useWatchlist`.
+Other team members are doing similar CRUD operations for *other* lists of data. Sounds like a good opportunity for another custom hook! It'll save everyone from re-writing the same logic.
+
+Create a `useList` which implements the basic CRUD operations for maintaining a list of values in React state. Use that inside `useMovies`.
 
 <details><summary>Click here for an implementation hint</summary>
 
@@ -78,5 +79,3 @@ const useList = (initialValue: T): UseListResultT => {}
 ```
 
 </details>
-
-For an additional challenge, persist the watchlist changes to the database. See if you can extend `useList` to handle both managing a list in React state *and* making configurable calls to the database. Definitely a real challenge!
