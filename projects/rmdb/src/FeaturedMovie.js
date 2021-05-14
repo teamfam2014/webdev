@@ -6,7 +6,7 @@ export const FeaturedMovie = ({ featuredMovie }) => {
   return (
     <section>
       <h3>Featured for {month}/{date}/{year}</h3>
-      <MoviePoster poster={featuredMovie.Poster} />
+      <MoviePoster movie={featuredMovie} />
       <p>{featuredMovie.Title}</p>
       <div>{featuredMovie.imdbRating}</div>
     </section>

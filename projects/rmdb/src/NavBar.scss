@@ -1,6 +1,29 @@
+.flex {
+  display: flex;
+}
+
+.flex-vcenter {
+  align-items: center;
+}
+
 .NavBar {
   display: flex;
   justify-content: space-between;
+
+  .logo-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      margin-right: 5px;
+      height: 28px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
 
   .sign-in {
     position: relative;

@@ -1,0 +1,17 @@
+.MovieDetail {
+  display: flex;
+  flex-direction: row;
+
+  section {
+    padding: 20px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .rating {
+    font-size: 20px;
+    color: gray;
+  }
+}

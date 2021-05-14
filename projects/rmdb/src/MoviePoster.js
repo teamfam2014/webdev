@@ -1,7 +1,11 @@
-export const MoviePoster = ({ poster }) => (
-  <img
-    src={poster}
-    width={75}
-    alt="Movie poster"
-  />
+import { Link } from 'react-router-dom'
+
+export const MoviePoster = ({ movie: { id, Poster } }) => (
+  <Link to={`/movies/${id}`}>
+    <img
+      src={Poster}
+      width={75}
+      alt="Movie poster"
+    />
+  </Link>
 )

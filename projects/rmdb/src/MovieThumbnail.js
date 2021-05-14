@@ -3,7 +3,7 @@ import './MovieThumbnail.scss'
 
 export const MovieThumbnail = ({ movie, onAdd, onEdit, onRemove, children }) => (
   <div className="MovieThumbnail">
-    <MoviePoster poster={movie.Poster} />
+    <MoviePoster movie={movie} />
     {movie.Title}
     {children}
     {onAdd && (<button onClick={() => onAdd(movie)}>+</button>)}

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './NavBar.scss'
 import { SignInForm } from './SignInForm'
 import { UserSummary } from './UserSummary'
+import { Link, Route } from 'react-router-dom'
 
 export const NavBar = () => {
   const [user, setUser] = useState(null)
@@ -11,7 +12,14 @@ export const NavBar = () => {
 
   return (
     <nav className="NavBar">
-      <img src={logo} alt="RMDb logo" />
+      <div className="logo-section">
+        <Route path="/movies/:id">
+          <Link to="/">
+            <button>&lt;</button>
+          </Link>
+        </Route>
+        <img src={logo} alt="RMDb logo" />
+      </div>
       {user ? (
         <UserSummary user={user} onSignOut={handleSignOut} />
       ) : (
