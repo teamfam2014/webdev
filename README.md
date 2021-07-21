@@ -144,6 +144,20 @@ Then visit <http://localhost:3000/js/>. This will lead you to various interactiv
 
 Other exercises will have you work with a Jest spec file and maybe an implementation file. In those cases, open one (or both) files for instructions. You can run the tests by running the commands in the prompt from the `/src` folder.
 
+### For React class
+
+You will build out a project called RMDb. Set up the project by visiting `/projects/rmdb` and installing the dependencies, then running the project:
+
+```shell
+$ cd projects/rmdb
+$ yarn
+$ yarn start
+```
+
+The exercises are under [/projects/rmdb/exercises](/projects/rmdb/exercises). Your instructor will inform you of which one to work on next.
+
+Each exercise is cumulative, building on the previous one. There is a reference solution provided at the top of each exercise in case you were unable to complete the previous lab.
+
 ### Sandbox
 
 There's a JS sandbox under `/sandbox`, with a skeleton JS starter project. Go into that directory and follow the `README.md` to get it running.

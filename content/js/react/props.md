@@ -117,6 +117,30 @@ const Greeting = ({ className, message }) => (
 />
 ```
 
+### Default Props
+
+* Use JS object prop defaults to provide default values for props
+
+```javascript
+const Greeting = ({ message, size = 16 }) => (
+  <div style={{ fontSize: size }}>
+    {message}
+  </div>
+)
+```
+
+### Default Props
+
+* Less common, you can give a `defaultProps` property to the JSX component.
+
+```javascript
+const Greeting = () => {/* ... */}
+
+Greeting.defaultProps = {
+  size: 16,
+}
+```
+
 ### Exercise
 
 **Exercise 1**

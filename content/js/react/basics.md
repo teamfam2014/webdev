@@ -174,6 +174,66 @@ const greeting = (
 )
 ```
 
+### Styling
+
+The simplest styling is "inline styles"
+
+* Pass in an object literal
+* Properties are camelCased
+* Pixels passed as numbers without 'px'
+
+```javascript
+<div style={{ backgroundColor: 'red', fontSize: 30 }}>
+  In red!
+</div>
+```
+
+### Styling
+
+You can import stylesheets into your JS:
+
+```scss
+// style.scss
+.danger {
+  background-color: red;
+}
+```
+
+```javascript
+// App.js
+import './style.scss'
+
+export const App = () => (
+  <div class="danger">In red!</div>
+)
+```
+
+### Styling
+
+This happens through webpack. It takes your SCSS file and throws it into the DOM in an appropriate place.
+
+Other options to explore:
+
+* CSS Modules
+* Styled Components
+* Glamor / Glamorous
+* Emotion
+* Tailwind CSS
+
+More here: [(link)](https://css-tricks.com/a-thorough-analysis-of-css-in-js/)
+
+### Everything Lives in JS
+
+You can also import images in your JS, and provide them as `src` to your `img` tags. Webpack handles it all for you.
+
+```javascript
+import myLogo from './logo.jpg'
+
+const logoJsx = (
+  <img src={myLogo} width={300} />
+)
+```
+
 ### Demo
 
 ### Exercise
