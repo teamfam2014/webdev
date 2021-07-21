@@ -100,6 +100,34 @@ const EchoChamber = () => (
 )
 ```
 
+### Using components from other files
+
+* Recommended practice: one component per file
+* Export a named constant as the component
+  * This makes renaming components easier in IDEs
+
+```javascript
+// bad
+export default () => (<div>Hello</div>)
+
+// good
+export const Message = () => (<div>Hello</div>)
+```
+
+### Using components from other files
+
+* Import the named component from other files to use them
+
+```javascript
+import { Message } from './Message'
+
+export const App = () => (
+  <div>
+    <Message />
+  </div>
+)
+```
+
 ### Exercise
 
 * Using your previous sandbox code or this starter sandbox [(link)](https://codesandbox.io/s/fervent-liskov-ncjoz?file=/src/App.js)...
