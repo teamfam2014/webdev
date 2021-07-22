@@ -1,16 +1,13 @@
-import {movies} from './Movies.js'
-
-//Featured Show
-const {Poster:poster,Title:title, imdbRating} = movies[0];
-console.log(poster);
-console.log(title);
-console.log(imdbRating);
-const FeaturedMovie = () => (
-  <div>
-    <p>{title}</p>
-    <img src={poster} width="75"/>
-    <p>Rating: {imdbRating}</p>
-  </div>
-)
+import {MovieThumbnail} from './MovieThumbnail.js'
+const FeaturedMovie = ({featuredMovie}) =>{
+    console.log('featuredMovie',featuredMovie)
+    const today = new Date().toLocaleDateString('en-CA').split('/')
+    return (
+        <section>
+            <h1>Featured Movie for {today}</h1>
+            <MovieThumbnail movie={featuredMovie}/>
+        </section>
+    )
+}
 
 export {FeaturedMovie}

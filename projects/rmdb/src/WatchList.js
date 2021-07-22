@@ -1,12 +1,13 @@
-import {movies} from './Movies.js'
+import { MovieList } from './MovieList.js'
 
-//Watchlist
-const userWatchList = [movies[1],movies[2],movies[4]]
-const WatchList = () =>(
-  <ul>
-    <li>{userWatchList[0].Title}</li>
-    <li>{userWatchList[1].Title}</li>
-    <li>{userWatchList[2].Title}</li>
-  </ul>
-)
+const WatchList = ({watchListMovies}) =>{
+    console.log('watchListMovies',watchListMovies)
+    return (
+        <section>
+            <h1>Watch List</h1>
+            <MovieList movies={watchListMovies} />
+        </section>
+    )
+}
+
 export {WatchList}
