@@ -5,7 +5,7 @@ const {Poster:poster,Title:title, imdbRating} = movies[0];
 console.log(poster);
 console.log(title);
 console.log(imdbRating);
-const Featured = () => (
+const MoviePoster = () => (
   <div>
     <p>{title}</p>
     <img src={poster} width="75"/>
@@ -13,4 +13,4 @@ const Featured = () => (
   </div>
 )
 
-export {Featured}
+export {MoviePoster}
