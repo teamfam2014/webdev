@@ -16,8 +16,7 @@ export const App = () => {
   }
 
   const handleRemoveWatchList = (movie) => {
-    const indexToRemove = watchListMovies.findIndex(watchListMovie => watchListMovie === movie)
-    const watchListMovieRemoved = [...watchListMovies.slice(0,indexToRemove),...watchListMovies.slice(indexToRemove+1)]
+    const watchListMovieRemoved = watchListMovies.filter(remMovie => remMovie.imdbID !== movie.imdbID)
     setWatchListMovies(watchListMovieRemoved)
   }
 
