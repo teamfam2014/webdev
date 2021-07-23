@@ -1,11 +1,16 @@
-import { MovieList } from "./MovieList"
+import { MovieListSection } from './MovieListSection'
 
-const AllMovies = ({movies}) => {
+const AllMovies = ({movies,onAdd}) =>{
+    console.log('movies',movies)
+    console.log('onAdd',onAdd)
     return (
-        <section>
-            <h1>All Movies</h1>
-            <MovieList movies={movies}/>
-        </section>
+        <MovieListSection 
+            movies={movies} 
+            title="All Movies" 
+            subtitle="Discover something new" 
+            onAdd={onAdd}
+            filterable="true"
+        />
     )
 }
 

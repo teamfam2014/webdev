@@ -1,7 +1,7 @@
 import { MovieList } from "./MovieList.js"
 import { useState } from 'react'
 
-const MovieListSection = ({movies,title, filterable}) => {
+const MovieListSection = ({movies,title, subtitle, filterable, onAdd, onRemove}) => {
     console.log('MovieListSection.js')
     console.log('movies',movies)
     console.log('title', title)
@@ -9,10 +9,11 @@ const MovieListSection = ({movies,title, filterable}) => {
     const handleClick = (event) =>{
         setFilterType(event.target.name)
     }
-    const filteredMovies = filterType != "all" ? movies.filter(movie => movie.Type === filterType) : movies
+    const filteredMovies = filterType !== "all" ? movies.filter(movie => movie.Type === filterType) : movies
     return (
         <section>
             <h3>{title}</h3>
+            <h4>{subtitle}</h4>
             {
                 filterable && (
                     <div>
@@ -22,7 +23,7 @@ const MovieListSection = ({movies,title, filterable}) => {
                     </div>
                 )
             }
-            <MovieList movies={filteredMovies}/>
+            <MovieList movies={filteredMovies} onAdd={onAdd} onRemove={onRemove}/>
         </section>
     )
 }

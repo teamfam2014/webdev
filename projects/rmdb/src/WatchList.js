@@ -1,12 +1,9 @@
-import { MovieList } from './MovieList.js'
+import { MovieListSection } from './MovieListSection'
 
-const WatchList = ({watchListMovies}) =>{
-    console.log('watchListMovies',watchListMovies)
+const WatchList = ({watchListMovies, onRemove}) =>{
+    console.log('watchListMovies',watchListMovies) 
     return (
-        <section>
-            <h1>Watch List</h1>
-            <MovieList movies={watchListMovies} />
-        </section>
+        <MovieListSection movies={watchListMovies} title="My Watch List" subtitle="Dive into your favorites!" onRemove={onRemove}/>
     )
 }
 

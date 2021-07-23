@@ -1,13 +1,15 @@
 import {MovieThumbnail} from './MovieThumbnail.js'
 import './MovieList.scss'
 
-const MovieList = ({movies}) => {
+const MovieList = ({movies, onAdd, onRemove}) => {
     console.log('movieList',movies)
     return (
         <div>
             <ul className="MovieList">
                 {movies.map( movie => (
-                    <li key={movie.imdbID}><MovieThumbnail key={movie.imdbID} movie={movie} /></li>
+                    <li key={movie.imdbID}>
+                        <MovieThumbnail movie={movie} onAdd={onAdd} onRemove={onRemove}/>
+                    </li>
                 ))}
             </ul>
         </div>
